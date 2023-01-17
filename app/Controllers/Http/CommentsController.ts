@@ -1,4 +1,3 @@
-import { Request } from '@adonisjs/core/build/standalone'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Comment from 'App/Models/Comment'
 import Moment from 'App/Models/Moment'
@@ -8,7 +7,7 @@ export default class CommentsController {
     const body = request.body()
     const momentId = params.momentId
 
-    await Moment.findByOrFail(momentId)
+    await Moment.findOrFail(momentId)
 
     body.momentId = momentId
 
